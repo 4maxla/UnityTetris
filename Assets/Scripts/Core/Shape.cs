@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Shape : MonoBehaviour
 {
+
+    public static Vector3 moveLeft = new Vector3(-1, 0, 0);
+    public static Vector3 moveRight = new Vector3(1, 0, 0);
+    public static Vector3 moveDown = new Vector3(0, -1, 0);
+    public static Vector3 moveUp = new Vector3(0, 1, 0);
+
     public bool m_canRotate = true; // Vai figūra var rotēt
 
     void Move(Vector3 moveDirection)
@@ -13,22 +21,22 @@ public class Shape : MonoBehaviour
 
     public void MoveLeft() // Figūras kustība pa kreisi
     {
-        Move(new Vector3(-1, 0, 0));
+        Move(moveLeft);
     }
 
     public void MoveRight() // Figūras kustība pa labi
     {
-        Move(new Vector3(1, 0, 0));
+        Move(moveRight);
     }
 
     public void MoveDown() // Figūras kustība uz leju
     {
-        Move(new Vector3(0, -1, 0));
+        Move(moveDown);
     }
 
     public void MoveUp() // Figūras kustība uz leju
     {
-        Move(new Vector3(0, 1, 0));
+        Move(moveUp);
     }
 
     public void RotateRight() // Rotācija pa labi
@@ -45,19 +53,5 @@ public class Shape : MonoBehaviour
         {
             transform.Rotate(0, 0, 90);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start() 
-    {
-       // InvokeRepeating("MoveDown", 0, 0.5f); // Invoke atkārtoti izsauc izvēlēto metodi ik pēc noteikta laika (Method, StartDelay, RepeatRate)
-
-       // InvokeRepeating("RotateRight", 0, 2);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
